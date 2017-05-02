@@ -1,4 +1,6 @@
 language: clojure
+jdk:
+  - oraclejdk8
 script: make test
 after_success:
   - make build
