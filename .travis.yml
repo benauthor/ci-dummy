@@ -1,7 +1,15 @@
 language: clojure
 jdk:
-  - oraclejdk8
-script: make test
+- oraclejdk8
+script:
+- make test
+- make build
 after_success:
-  - make build
-  - echo "neato"
+- echo "neato"
+deploy:
+  provider: heroku
+  api_key:
+    secure: HJnhpFIhkxCX0d37KHnhy0/J7iZTPvfn7lVKOYl04hFLEgq5NstHAH11aW/7uAhhI0UD3gItH/sxMwMmhL9VdQCvGwFryXAT4rtoZdqoQtmoeQ0qxlub38Yc6G8ZUsC53LGEAIxEli5K4PiFAGSHfbD/xLZAshp49wd7uss5uzSadBjwqY5To70o/AXjkhhB99S7sr5KKTppgjxwtFRqWGrPt+DbptzslYTWeRtTre090/f6p/uxfSy008fn7aF9auDm+j+cKRkI0Yl10G96CwT63YFyTM4oGt3a0F2gTnHaDOsr3lMfPzbOuRZ6gHA+UB1AcxagJzpOYCCO3mGjk4YAJzXn/YtZyJmU1l8pzoXqcytwrUaEajGFsQw5ZCVvsrfELVgAealbNFwNAghNHR7G8qumHQ1HqEDGD4w+aFg3YF1223rr+XgzdiOcNXU09145v3PTOTbNnPHUqMD4bJsWRRMhbU0Xl0OQ9gE9e0Z3UN0fTvKqbRH2S++FROS8jjgy2rnveh3GmSr26DA/9hbq/W2uU8WALDznPmYYDiXgN2d5bK1wuePCrUS/WNwvADP8b5WnDhcjuQ5U5kHCTHRFhq9qLw7TojXAKv1Q8MVH5tdS+Kh6wWci8NCwJxQ8a9f/5kRFf8e+GT/lCinQ1Jn5hE4MEDcn39GS27i18xQ=
+  app: ci-dummy-travis
+  on:
+    repo: benauthor/ci-dummy
