@@ -2,10 +2,7 @@ language: clojure
 jdk:
 - oraclejdk8
 script:
-- make test
-- make build
-after_success:
-- echo "neato"
+- lein test
 deploy:
   provider: heroku
   api_key:
