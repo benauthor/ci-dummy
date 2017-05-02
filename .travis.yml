@@ -1,0 +1,5 @@
+language: clojure
+script: make test
+after_success:
+  - make build
+  - echo "neato"
